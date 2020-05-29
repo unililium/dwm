@@ -72,9 +72,9 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const char *brightup[] = { "xbacklight", "-inc", "10", NULL };
 static const char *brightdown[] = { "xbacklight", "-dec", "10", NULL };
 static const char *lockscreen[] = { "/opt/lock", NULL };
-static const char *upvol[]   = { "amixer", "set", "Master", "5%+",     NULL };
-static const char *downvol[] = { "amixer", "set", "Master", "5%-",     NULL };
-static const char *mutevol[] = { "amixer", "set", "Master", "toggle",  NULL };
+static const char *upvol[]   = { "amixer", "set", "Master", "5%+", "&&", "pkill", "-RTMIN+10", "dwmblocks", NULL };
+static const char *downvol[] = { "amixer", "set", "Master", "5%-", "&&", "pkill", "-RTMIN+10", "dwmblocks", NULL };
+static const char *mutevol[] = { "amixer", "set", "Master", "toggle", "&&", "pkill", "-RTMIN+10", "dwmblocks", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
