@@ -19,16 +19,10 @@ static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#f0f0f0";
 // top bar second colour and active windows border color
 static const char col_cyan[]        = "#222222";
-
-static const char col_blood_red[] = "5a1807";
-static const char col_caput_mortuum[] = "#55251d";
-static const char col_french_bistre[] = "#696047";
-static const char col_dark_sea_green[] = "#92ac86";
-static const char col_celadon[] = "#a7d49b";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_dark_sea_green, col_blood_red, col_caput_mortuum },
-	[SchemeSel]  = { col_celadon, col_french_bistre,  col_dark_sea_green  },
+	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 
 /* tagging */
