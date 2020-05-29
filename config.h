@@ -72,6 +72,9 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const char *brightup[] = { "xbacklight", "-inc", "10", NULL };
 static const char *brightdown[] = { "xbacklight", "-dec", "10", NULL };
 static const char *lockscreen[] = { "/opt/lock", NULL };
+static const char *upvol[]   = { "amixer", "set", "Master", "5%+",     NULL };
+static const char *downvol[] = { "amixer", "set", "Master", "5%-",     NULL };
+static const char *mutevol[] = { "amixer", "set", "Master", "toggle",  NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -112,6 +115,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_e,      quit,           {0} },
 	{ 0,  	      XF86XK_MonBrightnessUp,	   spawn,          {.v = brightup } },
 	{ 0,	    XF86XK_MonBrightnessDown,      spawn,	   {.v = brightdown } },
+	{ 0,         XF86XK_AudioRaiseVolume,      spawn,          {.v = upvol   } },
+	{ 0,          XF86XK_AudioLowerVolume,     spawn,          {.v = downvol } },
+	{ 0,                 XF86XK_AudioMute,     spawn,          {.v = mutevol } },
 };
 
 /* button definitions */
