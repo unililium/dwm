@@ -8,6 +8,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Fira Code:size=12", "fontawesome:size=14" };
 static const char dmenufont[]       = "monospace:size=12";
+/* default grey colours
 // background color
 static const char col_gray1[]       = "#222222";
 // inactive window border color
@@ -18,14 +19,20 @@ static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#f0f0f0";
 // top bar second colour and active windows border color
 static const char col_cyan[]        = "#222222";
+*/
+static const char col_blood_red[] = "5A1807";
+static const char col_caput_mortuum[] = "#55251D";
+static const char col_french_bistre[] = "#696047";
+static const char col_dark_sea_green[] = "#92AC86";
+static const char col_celadon[] = "#A7D49B";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { col_dark_sea_green, col_blood_red, col_caput_mortuum },
+	[SchemeSel]  = { col_celadon, col_french_bistre,  col_dark_sea_green  },
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -34,7 +41,8 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 7,       0,           -1 },
+	{ "spotify",  NULL,       NULL,       1 << 6,       0,           -1 },
 };
 
 /* layout(s) */
