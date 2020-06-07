@@ -37,8 +37,8 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 7,       0,           -1 },
-	{ "spotify",  NULL,       NULL,       1 << 6,       0,           -1 },
-	{ "Tilda",    NULL,       NULL,       0,            True,        -1 },
+	{ "Spotify",  NULL,       NULL,       1 << 6,       0,           -1 },
+	{ "Alacritty",NULL,       "alacrittyd",    0,       1,           -1 }
 };
 
 /* layout(s) */
@@ -51,7 +51,7 @@ static const Layout layouts[] = {
 	{ "",      spiral },
 	{ "",      NULL },    /* no layout function means floating behavior */
 	{ "",      monocle },
-	{ "",      tile },    /* first entry is default */
+	{ "",      tile },    /* first entry is default */
 	{ "[\\]",   dwindle },
 };
 
@@ -72,8 +72,9 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *roficmd[] = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
-static const char *brightup[] = { "xbacklight", "-inc", "10", NULL };
-static const char *brightdown[] = { "xbacklight", "-dec", "10", NULL };
+static const char *tdropcmd[]  = { "tdrop", "-h", "400", "alacritty", "-t", "alacrittyd", NULL };
+static const char *brightup[] = { "xbacklight", "-inc", "5", NULL };
+static const char *brightdown[] = { "xbacklight", "-dec", "5", NULL };
 static const char *lockscreen[] = { "/opt/lock", NULL };
 static const char *upvol[]   = { "amixer", "set", "Master", "5%+", NULL };
 static const char *downvol[] = { "amixer", "set", "Master", "5%-", NULL };
@@ -84,6 +85,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = roficmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ 0,                            XK_F12,    spawn,          {.v = tdropcmd} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
