@@ -6,6 +6,7 @@ static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const double defaultopacity  = 0.75;
 static const char *fonts[]          = { "Fira Code:size=12", "fontawesome:size=14" };
 static const char dmenufont[]       = "monospace:size=12";
 /* default grey colours */
@@ -120,6 +121,9 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockscreen} },
 	{ MODKEY|ShiftMask,             XK_e,      quit,           {0} },
+        { MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("transset-df -a --dec .1") },
+        { MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("transset-df -a --inc .1") },
+        { MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("transset-df -a .75") },
 	{ 0,  	      XF86XK_MonBrightnessUp,	   spawn,          {.v = brightup } },
 	{ 0,	    XF86XK_MonBrightnessDown,      spawn,	   {.v = brightdown } },
 	{ 0,         XF86XK_AudioRaiseVolume,      spawn,          {.v = upvol   } },
