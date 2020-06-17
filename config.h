@@ -74,13 +74,6 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *roficmd[] = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *tdropcmd[]  = { "tdrop", "-h", "400", "alacritty", "-t", "alacrittyd", NULL };
-static const char *brightup[] = { "xbacklight", "-inc", "5", NULL };
-static const char *brightdown[] = { "xbacklight", "-dec", "5", NULL };
-static const char *lockscreen[] = { "/opt/lock", NULL };
-static const char *upvol[]   = { "amixer", "set", "Master", "5%+", NULL };
-static const char *downvol[] = { "amixer", "set", "Master", "5%-", NULL };
-static const char *mutevol[] = { "amixer", "set", "Master", "toggle", NULL };
-static const char *sigdwmblocks[] = { "pkill", "-RTMIN+10", "dwmblocks", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -119,19 +112,17 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockscreen} },
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("/opt/loc") },
 	{ MODKEY|ShiftMask,             XK_e,      quit,           {0} },
         { MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("transset-df -a --dec .1") },
         { MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("transset-df -a --inc .1") },
         { MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("transset-df -a .75") },
-	{ 0,  	      XF86XK_MonBrightnessUp,	   spawn,          {.v = brightup } },
-	{ 0,	    XF86XK_MonBrightnessDown,      spawn,	   {.v = brightdown } },
-	{ 0,         XF86XK_AudioRaiseVolume,      spawn,          {.v = upvol   } },
-	{ 0,         XF86XK_AudioRaiseVolume,      spawn,   	   {.v = sigdwmblocks } },
-	{ 0,          XF86XK_AudioLowerVolume,     spawn,          {.v = downvol } },
-	{ 0,         XF86XK_AudioLowerVolume,      spawn,  	   {.v = sigdwmblocks } },
-	{ 0,                 XF86XK_AudioMute,     spawn,          {.v = mutevol } },
-	{ 0,                 XF86XK_AudioMute,     spawn,          {.v = sigdwmblocks } },
+	{ 0,  	      XF86XK_MonBrightnessUp,	   spawn,          SHCMD("xbacklight -inc 5") },
+	{ 0,	    XF86XK_MonBrightnessDown,      spawn,	   SHCMD("xbacklight -dec 5") },
+	{ 0,         XF86XK_AudioRaiseVolume,      spawn,          SHCMD("amixer set Master 5%+ && pkill -RTMIN+10 dwmblocks")},
+	{ 0,         XF86XK_AudioLowerVolume,      spawn,  	   SHCMD("amixer set Master 5%- && pkill -RTMIN+10 dwmblocks") },
+	{ 0,                 XF86XK_AudioMute,     spawn,          SHCMD("amixer set Master toggle && pkill -RTMIN+10 dwmblocks") },
+//	{ 0,                 PrintSc,              spawn,          SHCMD("sleep 0.2; scrot -s ~/Pictures/Screenshots/%Y-%m-%d_$wx$h_scrot.png") },
 };
 
 /* button definitions */
