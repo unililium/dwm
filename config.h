@@ -121,8 +121,8 @@ static Key keys[] = {
 	{ 0,	    XF86XK_MonBrightnessDown,      spawn,	   SHCMD("xbacklight -dec 5") },
 	{ 0,         XF86XK_AudioRaiseVolume,      spawn,          SHCMD("amixer set Master 5%+ && pkill -RTMIN+10 dwmblocks")},
 	{ 0,         XF86XK_AudioLowerVolume,      spawn,  	   SHCMD("amixer set Master 5%- && pkill -RTMIN+10 dwmblocks") },
-	{ 0,                 XF86XK_AudioMute,     spawn,          SHCMD("amixer set Master toggle && pkill -RTMIN+10 dwmblocks") },
-//	{ 0,                 PrintSc,              spawn,          SHCMD("sleep 0.2; scrot -s ~/Pictures/Screenshots/%Y-%m-%d_$wx$h_scrot.png") },
+	{ 0,                XF86XK_AudioMute,      spawn,          SHCMD("amixer set Master toggle && pkill -RTMIN+10 dwmblocks") },
+	{ 0,                        XK_Print,      spawn,          SHCMD("sleep 0.2; scrot -s ~/Pictures/Screenshots/%Y-%m-%d_$wx$h_scrot.png") },
 };
 
 /* button definitions */
