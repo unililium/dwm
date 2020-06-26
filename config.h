@@ -112,11 +112,11 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("/opt/loc") },
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("/opt/lock") },
 	{ MODKEY|ShiftMask,             XK_e,      quit,           {0} },
-        { MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("transset-df -a --dec .1") },
-        { MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("transset-df -a --inc .1") },
-        { MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("transset-df -a .75") },
+    { MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("transset-df -a --dec .1") },
+    { MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("transset-df -a --inc .1") },
+    { MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("transset-df -a .75") },
 	{ 0,  	      XF86XK_MonBrightnessUp,	   spawn,          SHCMD("xbacklight -inc 5") },
 	{ 0,	    XF86XK_MonBrightnessDown,      spawn,	   SHCMD("xbacklight -dec 5") },
 	{ 0,         XF86XK_AudioRaiseVolume,      spawn,          SHCMD("amixer set Master 5%+ && pkill -RTMIN+10 dwmblocks")},
