@@ -73,7 +73,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *roficmd[] = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
-static const char *tdropcmd[]  = { "tdrop", "-h", "400", "alacritty", "-t", "alacrittyd", NULL };
+static const char *tdropcmd[]  = { "tdrop", "-y", "15", "-h", "400", "alacritty", "-t", "alacrittyd", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -118,9 +118,9 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("transset-df -a --inc .1") },
     { MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("transset-df -a .75") },
 	{ 0,  	      XF86XK_MonBrightnessUp,	   spawn,          SHCMD("xbacklight -inc 5") },
-	{ 0,	    XF86XK_MonBrightnessDown,      spawn,	   SHCMD("xbacklight -dec 5") },
+	{ 0,	    XF86XK_MonBrightnessDown,      spawn,	       SHCMD("xbacklight -dec 5") },
 	{ 0,         XF86XK_AudioRaiseVolume,      spawn,          SHCMD("amixer set Master 5%+ && pkill -RTMIN+10 dwmblocks")},
-	{ 0,         XF86XK_AudioLowerVolume,      spawn,  	   SHCMD("amixer set Master 5%- && pkill -RTMIN+10 dwmblocks") },
+	{ 0,         XF86XK_AudioLowerVolume,      spawn,  	       SHCMD("amixer set Master 5%- && pkill -RTMIN+10 dwmblocks") },
 	{ 0,                XF86XK_AudioMute,      spawn,          SHCMD("amixer set Master toggle && pkill -RTMIN+10 dwmblocks") },
 	{ 0,                        XK_Print,      spawn,          SHCMD("scrot ~/Pictures/Screenshots/%Y-%m-%d_%H-%M_scrot.png") },
 	{ MODKEY,                   XK_Print,      spawn,          SHCMD("sleep 0.2; scrot -s ~/Pictures/Screenshots/%Y-%m-%d_%H-%M_scrot.png") },
