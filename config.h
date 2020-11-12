@@ -112,15 +112,16 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+	{ MODKEY,                       XK_s,      spawn,          SHCMD("/usr/local/bin/passmenu") },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("/opt/lock") },
 	{ MODKEY|ShiftMask,             XK_e,      quit,           {0} },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("transset-df -a --dec .1") },
     	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("transset-df -a --inc .1") },
     	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("transset-df -a .75") },
 	{ 0,  	      XF86XK_MonBrightnessUp,	   spawn,          SHCMD("xbacklight -inc 5") },
-	{ 0,	    XF86XK_MonBrightnessDown,      spawn,	       SHCMD("xbacklight -dec 5") },
+	{ 0,	    XF86XK_MonBrightnessDown,      spawn,	   SHCMD("xbacklight -dec 5") },
 	{ 0,         XF86XK_AudioRaiseVolume,      spawn,          SHCMD("amixer set Master 5%+ && pkill -RTMIN+10 dwmblocks")},
-	{ 0,         XF86XK_AudioLowerVolume,      spawn,  	       SHCMD("amixer set Master 5%- && pkill -RTMIN+10 dwmblocks") },
+	{ 0,         XF86XK_AudioLowerVolume,      spawn,  	   SHCMD("amixer set Master 5%- && pkill -RTMIN+10 dwmblocks") },
 	{ 0,                XF86XK_AudioMute,      spawn,          SHCMD("amixer set Master toggle && pkill -RTMIN+10 dwmblocks") },
 	{ 0,                        XK_Print,      spawn,          SHCMD("scrot ~/Pictures/Screenshots/%Y-%m-%d_%H-%M_scrot.png") },
 	{ MODKEY,                   XK_Print,      spawn,          SHCMD("sleep 0.2; scrot -s ~/Pictures/Screenshots/%Y-%m-%d_%H-%M_scrot.png") },
